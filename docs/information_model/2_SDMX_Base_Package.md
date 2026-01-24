@@ -43,13 +43,11 @@ All classes derived from the abstract class `AnnotableArtefact` may have
 Annotations (or notes): this supports the need to add notes to all
 SDMX-ML elements. The Annotation is used to convey extra information to
 describe any SDMX construct. This information may be in the form of a
-URL reference and/or a multilingual text (represented by the association
+`+link` and/or a multilingual text (represented by the association
 to `InternationalString`).
 
 The `IdentifiableArtefact` is an abstract class that comprises the basic
-attributes needed for identification. Concrete classes based on
-`IdentifiableArtefact` all inherit the ability to be uniquely
-identified.
+attributes needed for identification and `+link`s to external resources. Concrete classes based on `IdentifiableArtefact` all inherit the ability to be uniquely identified.
 
 The `NamableArtefact` is an abstract class that inherits from
 `IdentifiableArtefact` and in addition the `+description` and `+name` roles
@@ -84,14 +82,24 @@ and maintenance.
 |  | `type` | Specifies how the annotation is to be processed. |
 |  | `url` | A link to external descriptive text. |
 |  | `value` | A non-localised version of the Annotation content. |
-|  | `+url` | An International URI provides a set of links that are language specific, via this role. |
+|  | ~~`+url`~~ | ~~An International URI provides a set of links that are language specific, via this role.~~ |
 |  | `+text` | An International String provides the multilingual text content of the annotation via this role. |
-| `InternationalUri` |  | The International Uri is a collection of Localised URIs and supports linking to external descriptions in multiple locales. |
-| `LocalisedUri` |  | The Localised URI supports the link to an external description in one locale (locale is similar to language but includes geographic variations such as Canadian French, US English etc.). |
+|  | `+link` | An optionally localised link to related information which may contain or supplement the annotation (e.g., using 'self' as relationship). If a specific behavior is desired, an annotation type should be defined which specifies the use of this field more exactly. If appropriate, a collection of links to additional external resources. |
+| ~~`InternationalUri`~~ |  | ~~The International Uri is a collection of Localised URIs and supports linking to external descriptions in multiple locales.~~ |
+| ~~`LocalisedUri`~~ |  | ~~The Localised URI supports the link to an external description in one locale (locale is similar to language but includes geographic variations such as Canadian French, US English etc.).~~ |
+| `Link` |  | A link to additional resources, including external resources. |
+|  | `href` | The href holds a URL (Uniform Resource Locator) with the actual web address of the related resource. Either href or urn are required. |
+|  | `rel` | Relationship of the object to the resource. See semantics below. Use 'self' to indicate the urn to the parent object. |
+|  | `urn` | The urn holds any valid SDMX Registry URN (see SDMX Registry Specification for details). Either href or urn are required. |
+|  | `uri` | The uri attribute holds a URI that contains a link to additional information about the resource, such as a web page. This uri is not an SDMX resource. |
+|  | `+title` | A title for the link. |
+|  | `type` | A hint about the type of representation returned by the link. |
+|  | `hreflang` | The natural language of the external link, the same as used in the HTTP Accept-Language request header. |
 | `IdentifiableArtefact` | Superclass is `AnnotableArtefact`. Base inheritance sub classes are: `NameableArtefact` | Provides identity to all derived classes. It also provides annotations to derived classes because it is a subclass of `AnnotableArtefact`. |
 |  | `id` | The unique identifier of the object. |
-|  | `uri` | Universal resource identifier that may or may not be resolvable. |
-|  | `urn` | Universal resource name – this is for use in registries: all registered objects have a urn. |
+|  | ~~`uri`~~ | ~~Universal resource identifier that may or may not be resolvable.~~ |
+|  | ~~`urn`~~ | ~~Universal resource name – this is for use in registries: all registered objects have a urn.~~ |
+|  | `+link` | An optionally localised link used to specify the URI or the URN to itself. If appropriate, a collection of links to additional external resources. |
 | `NameableArtefact` | Superclass is `IdentifiableArtefact`. Base inheritance sub classes are: `VersionableArtefact` | Provides a Name and Description to all derived classes in addition to identification and annotations. |
 |  | `+description` | A multi-lingual description is provided by this role via the International String class. |
 |  | `+name` | A multi-lingual name is provided by this role via the International String class. |
