@@ -129,8 +129,8 @@ Dimension in the context of a Dataflow.
 |  | `+child` | Association to a child `Level` of `Level`. |
 | `CodingFormat` |  | Specifies format information for the codes at this level in the hierarchy such as whether the codes at the level are alphabetic, numeric or alphanumeric and the code length. |
 | `HierarchicalCode` |  | A hierarchic structure of code references. |
-|  | `validFrom` | Date from which the construct is valid. |
-|  | `validTo` | Date from which the construct is superseded. |
+|  | `validFrom` | An `ObservationalTimePeriod`. Date-time (start of the given time period) from which the construct is valid. |
+|  | `validTo` | An `ObservationalTimePeriod`. Date-time (end of the given time period) from which the construct ceases to be valid. |
 |  | `+code` | Association to the `Code` that is used at the specific point in the hierarchy. |
 |  | `+child` | Association to a child `Code` in the hierarchy. |
 |  | `+level` | Association to a `Level` where levels have been defined for the `Hierarchy`. |

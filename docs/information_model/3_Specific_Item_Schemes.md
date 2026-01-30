@@ -83,7 +83,9 @@ paragraph "Explanation of the Diagram" - "Narrative".
 | Class    | Feature   | Description |
 | :---     | :---      | :--- |
 | `Codelist` | Inherits from: `ItemScheme` | A list from which some statistical concepts (coded concepts) take their values. |
-| `Code`     | Inherits from: `Item` | A language independent set of letters, numbers or symbols that represent a concept whose meaning is described in a natural language. |
+| `Code`   | Inherits from: `Item` | A language independent set of letters, numbers or symbols that represent a concept whose meaning is described in a natural language. |
+|          | `validFrom` | An `ObservationalTimePeriod`. Used for business validity: Values can only be provided for this Code if their Time Periods start earliest at the start of the time period defined in this property. |
+|          | `validTo` | An `ObservationalTimePeriod`. Used for business validity: Values can only be provided for this Code if their Time Periods end latest at the end of the time period defined in this property. |
 |          | hierarchy  | Associates the parent and the child codes. |
 |          | extends    | Associates a `Codelist` with any `Codelist`s that it may extend. |
 
