@@ -15,7 +15,7 @@ All major classes of the SDMX Information model inherit from one of:
     Standards Section 6 “Technical Notes”, paragraph “4.3 Versioning”,
     as well as a validity period for non-semantically versioned artefacts.
 - `MaintainableArtefact` – this has all of the above features,
-    plus registry and structure URIs, and an association to the
+    plus SDMX web service and structure URIs, and an association to the
     maintenance organisation of the object.
 
 ### Identification, Naming, Versioning, and Maintenance Model
@@ -36,26 +36,29 @@ be stored in a registry for objects that are one of:
 
 | Object Type | Data Attributes | Status | Data type | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| `Annotable` | `annotationTitle` | Optional | string |  |
-| | `AnnotationType` | Optional | string |
-| | `AnnotationURN` | Optional | string |
-| | `AnnotationText` | Optional | `InternationalString` | Can have language-specific variants |
+| `Annotable` |  |   |      |      |
+| | `id` | Optional | string | Provides a non-standard identification of an annotation. It can be used to disambiguate annotations. |
+| | `AnnotationTitle` | Optional | string | Provides a title for the annotation. |
+| | `AnnotationType` | Optional | string | Used to distinguish between annotations designed to support various uses. The types are not enumerated, as these can be specified by the user or creator of the annotations. The definitions and use of annotation types should be documented by their creator. | 
+| | `AnnotationValue` | Optional | string | Holds a non-localised value for the annotation. |
+| | `AnnotationText` | Optional | `InternationalString` | Can have language-specific variants. |
+| | `AnnotationLinks` | Optional | `Link` | Optionally localised link(s) based on a URI or a URN to related information, including external resources. |
 | `Identifiable` | All content as for `Annotable` plus |  |  |  |
 | | `id` | Mandatory | SDMX `id` |  |
 | | `urn` | Optional | string | Although the `urn` is computable and may not be submitted or stored physically, the registry must return the `urn` for each object, and must be able to service a query on an object referenced solely by its `urn`. |
 | | `+link` | Optional | `Link` | Optionally localised link(s) based on a URI or a URN to related information, including external resources. |
 | `Nameable` | All content as for `Identifiable` plus |  |  |  |
-| | `Name` | Mandatory | `InternationalString` | Can have language-specific variants |
-| | `Description` | Optional | `InternationalString` | Can have language-specific variants |
+| | `Name` | Mandatory | `InternationalString` | Can have language-specific variants. |
+| | `Description` | Optional | `InternationalString` | Can have language-specific variants. |
 | `Versionable` | All content as for `Identifiable` plus |  |  |  |
-| | `version` | Mandatory | string | This is the version number according to SDMX versioning rules |
-| | `validFrom` | Optional | date/time |  |
-| | `validTo` | Optional | date/time |  |
+| | `version` | Mandatory | string | This is the version number according to SDMX versioning rules. |
+| | `validFrom` | Optional | `ObservationalTimePeriod` | Date-time (start of the given time period) from which the version is valid. Only for artefacts that are not semantically verioned. |
+| | `validTo` | Optional | `ObservationalTimePeriod` | Date-time (end of the given time period) from which the version ceases to be valid. Only for artefacts that are not semantically verioned. |
 | `Maintainable` | All content as for `Versionable` plus |  |  |  |
-| | `isExternalReference` | Optional | boolean | Value of `true` indicates that the actual resource is held outside of this registry. The actual reference is given in the `structureURL`, each of which must return a valid SDMX-ML file. |
-| | `serviceURL` | Optional | string | The URL of the service that can be queried for this resource |
-| | `structureURL` | Optional | string | The URL of the resource |
-| | (Maintenance) `agencyID`  | Mandatory | `NestedNCNameID` | The object must be linked to a maintenance organisation, i.e., agency or metadata provider |
+| | `isExternalReference` | Optional | boolean | Value of `true` indicates that the actual resource is held outside of this registry. The actual reference is given in the `structureURL`, which must return a valid SDMX structure message. |
+| | `structureURL` | Optional | string | The full URL at which the resource can be retrieved. |
+| | `serviceURL` | Optional | string | The URL root of the SDMX-compliant web service that can be queried for this resource. |
+| | (Maintenance) `agencyID`  | Mandatory | `NestedNCNameID` | The id of a maintenance organisation, i.e., agency or metadata provider. |
 /// table-caption
 Table: Common Attributes of Object Types
 Common Attributes of Object Types

@@ -80,7 +80,6 @@ and maintenance.
 |  | `id` | Identifier for the Annotation. It can be used to disambiguate one Annotation from another where there are several Annotations for the same annotated object. |
 |  | `title` | A title used to identify an annotation. |
 |  | `type` | Specifies how the annotation is to be processed. |
-|  | `url` | A link to external descriptive text. |
 |  | `value` | A non-localised version of the Annotation content. |
 |  | `+text` | An International String provides the multilingual text content of the annotation via this role. |
 |  | `+link` | Optionally localised link(s) based on a URI or a URN to related information, including external resources. |
@@ -108,10 +107,10 @@ and maintenance.
 |  | `validFrom` | An `ObservationalTimePeriod`. Date-time (start of the given time period) from which the version is valid. Only for artefacts that are not semantically verioned. |
 |  | `validTo` | An `ObservationalTimePeriod`. Date-time (end of the given time period) from which the version ceases to be valid. Only for artefacts that are not semantically verioned. |
 | `MaintainableArtefact` | Inherits from `VersionableArtefact` | An abstract class to group together primary structural metadata artefacts that are maintained by an Agency. |
-|  | `isExternalReference` | If set to "true" it indicates that the content of the object is held externally. |
-|  | `structureURL` | The URL of an SDMX-ML document containing the external object. |
-|  | `serviceURL` | The URL of an SDMX-compliant web service from which the external object can be retrieved. |
-|  | `agencyID` | Association to the Maintenance Agency responsible for maintaining the artefact. |
+|  | `isExternalReference` | If set to `true` it indicates that the content of the object is held externally. The actual reference is given in the `structureURL`, which must return a valid SDMX structure message. |
+|  | `structureURL` | The full URL at which the resource can be retrieved. |
+|  | `serviceURL` | The URL root of an SDMX-compliant web service that can be queried for this resource. |
+|  | `agencyID` | The `Id` of the Maintenance Agency responsible for maintaining the artefact. |
 | `Agency` |  | See section on “Organisations” |
 
 
