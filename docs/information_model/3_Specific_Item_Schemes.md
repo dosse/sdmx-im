@@ -45,8 +45,9 @@ The `Codelist` inherits from the `ItemScheme` and therefore has the
 following attributes:
 
 - `id`
-- `uri`
+- `agencyID`
 - `urn`
+- `+link`
 - `version`
 - `validFrom`
 - `validTo`
@@ -58,8 +59,8 @@ following attributes:
 The `Code` inherits from `Item` and has the following attributes:
 
 - `id`
-- `uri`
 - `urn`
+- `+link`
 
 Both `Codelist` and `Code` have the association to `InternationalString` to
 support a multi-lingual name, an optional multi-lingual description, and
@@ -192,8 +193,9 @@ A `ValueList` inherits from `EnumeratedList` (and hence the
 `MaintenableArtefact`) and thus has the following attributes:
 
 - `id`
-- `uri`
+- `agencyID`
 - `urn`
+- `+link`
 - `version`
 - `validFrom`
 - `validTo`
@@ -233,8 +235,9 @@ The `ConceptScheme` inherits from the `ItemScheme` and therefore has the
 following attributes:
 
 - `id`
-- `uri`
+- `agencyID`
 - `urn`
+- `+link`
 - `version`
 - `validFrom`
 - `validTo`
@@ -246,9 +249,9 @@ following attributes:
 
 Concept inherits from Item and has the following attributes:
 
-- id
-- uri
-- urn
+- `id`
+- `urn`
+- `+link`
 
 Through the inheritance from `NameableArtefact` both `ConceptScheme` and
 Concept have the association to `InternationalString` to support a
@@ -345,8 +348,9 @@ The categories are modelled as a hierarchical `ItemScheme`. The
 attributes:
 
 - `id`
-- `uri`
+- `agencyID`
 - `urn`
+- `+link`
 - `version`
 - `validFrom`
 - `validTo`
@@ -358,8 +362,8 @@ attributes:
 `Category` inherits from `Item` and has the following attributes:
 
 - `id`
-- `uri`
 - `urn`
+- `+link`
 
 Both `CategoryScheme` and `Category` have the association to
 `InternationalString` to support a multi-lingual name, an optional

@@ -734,6 +734,10 @@ should not be used outside of a specific system designed to accommodate
 them. For most purposes, all artefacts should become stable before being
 used in production.
 
+The `validFrom` and `validTo` properties of versionable artefacts do not
+apply to semantically versioned artefacts as those are immutable and 
+permanently valid.
+
 ### Legacy-versioned artefacts
 
 Organisations wishing to keep a maximum of backwards compatibility with
@@ -747,6 +751,8 @@ implementations were varying.
 
 In order to make artefacts immutable or changes truly predictable, a
 move to the new semantic versioning syntax is required.
+
+The `validFrom` and `validTo` properties can be used for non-versioned artefacts.
 
 ### Dependency management and references
 
@@ -786,11 +792,9 @@ various structural objects in SDMX, it is useful to have a scheme for
 external referencing. This is done at the level of maintainable objects
 (DSDs, Codelists, Concept Schemes, etc.) In an SDMX Structure Message,
 whenever an `"isExternalReference"` attribute is set to true, then the
-application must resolve the address provided in the associated `"uri"`
-attribute and use the SDMX Structure Message stored at that location for
-the full definition of the object in question. Alternately, if a
-registry `"urn"` attribute has been provided, the registry can be used to
-supply the full details of the object.
+application must resolve the address provided in the associated `"serviceURL"`
+attribute and use the SDMX Structure Message available at that location for
+the full definition of the object in question.
 
 The detailed rules for dependency management and references are listed
 in chapter 14 in the annex for “Semantic Versioning”.

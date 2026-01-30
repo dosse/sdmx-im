@@ -63,8 +63,9 @@ These schemes inherit from the `ItemScheme` and therefore have the
 following attributes:
 
 - `id`
-- `uri`
+- `agencyID`
 - `urn`
+- `+link`
 - `version`
 - `validFrom`
 - `validTo`
@@ -80,8 +81,8 @@ associations of `Item` which itself inherits from `NameableArtefact`. They
 have the following attributes:
 
 - `id`
-- `uri`
 - `urn`
+- `+link`
 
 The multi-lingual name and description are provided by the relationship
 to `InternationalString` from `NameableArtefact`.

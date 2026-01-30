@@ -82,24 +82,20 @@ and maintenance.
 |  | `type` | Specifies how the annotation is to be processed. |
 |  | `url` | A link to external descriptive text. |
 |  | `value` | A non-localised version of the Annotation content. |
-|  | ~~`+url`~~ | ~~An International URI provides a set of links that are language specific, via this role.~~ |
 |  | `+text` | An International String provides the multilingual text content of the annotation via this role. |
-|  | `+link` | An optionally localised link to related information which may contain or supplement the annotation (e.g., using 'self' as relationship). If a specific behavior is desired, an annotation type should be defined which specifies the use of this field more exactly. If appropriate, a collection of links to additional external resources. |
-| ~~`InternationalUri`~~ |  | ~~The International Uri is a collection of Localised URIs and supports linking to external descriptions in multiple locales.~~ |
-| ~~`LocalisedUri`~~ |  | ~~The Localised URI supports the link to an external description in one locale (locale is similar to language but includes geographic variations such as Canadian French, US English etc.).~~ |
+|  | `+link` | Optionally localised link(s) based on a URI or a URN to related information, including external resources. |
 | `Link` |  | A link to additional resources, including external resources. |
 |  | `href` | The href holds a URL (Uniform Resource Locator) with the actual web address of the related resource. Either href or urn are required. |
 |  | `rel` | Relationship of the object to the resource. See semantics below. Use 'self' to indicate the urn to the parent object. |
 |  | `urn` | The urn holds any valid SDMX Registry URN (see SDMX Registry Specification for details). Either href or urn are required. |
 |  | `uri` | The uri attribute holds a URI that contains a link to additional information about the resource, such as a web page. This uri is not an SDMX resource. |
-|  | `+title` | A title for the link. |
+|  | `+title` | An International String provides the title for the link. |
 |  | `type` | A hint about the type of representation returned by the link. |
 |  | `hreflang` | The natural language of the external link, the same as used in the HTTP Accept-Language request header. |
 | `IdentifiableArtefact` | Superclass is `AnnotableArtefact`. Base inheritance sub classes are: `NameableArtefact` | Provides identity to all derived classes. It also provides annotations to derived classes because it is a subclass of `AnnotableArtefact`. |
 |  | `id` | The unique identifier of the object. |
-|  | ~~`uri`~~ | ~~Universal resource identifier that may or may not be resolvable.~~ |
-|  | ~~`urn`~~ | ~~Universal resource name – this is for use in registries: all registered objects have a urn.~~ |
-|  | `+link` | An optionally localised link used to specify the URI or the URN to itself. If appropriate, a collection of links to additional external resources. |
+|  | `urn` | Universal resource name – this is for use in registries: all registered objects have a urn. |
+|  | `+link` | Optionally localised link(s) based on a URI or a URN to related information, including external resources. |
 | `NameableArtefact` | Superclass is `IdentifiableArtefact`. Base inheritance sub classes are: `VersionableArtefact` | Provides a Name and Description to all derived classes in addition to identification and annotations. |
 |  | `+description` | A multi-lingual description is provided by this role via the International String class. |
 |  | `+name` | A multi-lingual name is provided by this role via the International String class. |
@@ -109,13 +105,13 @@ and maintenance.
 |  | `locale` | The geographic locale of the string e.g French, Canadian French. |
 | `VersionableArtefact` | Superclass is `NameableArtefact`. Base inheritance sub classes are: `MaintainableArtefact` | Provides versioning information for all derived objects. |
 |  | `version` | A version string following SDMX versioning rules. |
-|  | `validFrom` | Date from which the version is valid. |
-|  | `validTo` | Date from which version is superseded. |
+|  | `validFrom` | An `ObservationalTimePeriod`. Date-time (start of the given time period) from which the version is valid. Only for artefacts that are not semantically verioned. |
+|  | `validTo` | An `ObservationalTimePeriod`. Date-time (end of the given time period) from which the version ceases to be valid. Only for artefacts that are not semantically verioned. |
 | `MaintainableArtefact` | Inherits from `VersionableArtefact` | An abstract class to group together primary structural metadata artefacts that are maintained by an Agency. |
 |  | `isExternalReference` | If set to "true" it indicates that the content of the object is held externally. |
 |  | `structureURL` | The URL of an SDMX-ML document containing the external object. |
 |  | `serviceURL` | The URL of an SDMX-compliant web service from which the external object can be retrieved. |
-|  | `+maintainer` | Association to the Maintenance Agency responsible for maintaining the artefact. |
+|  | `agencyID` | Association to the Maintenance Agency responsible for maintaining the artefact. |
 | `Agency` |  | See section on “Organisations” |
 
 
@@ -160,16 +156,11 @@ The `ActionType` enumeration is used to specify the action that a
 receiving system should take when processing the content that is the
 object of the action. It is enumerated as follows:
 
-- `Append`: Data or metadata is an incremental update for an existing
-    data/metadata set or the provision of new data or documentation
-    (attribute values) formerly absent. If any of the supplied data or
-    metadata is already present, it will not replace that data or
-    metadata. This corresponds to the "Update" value found in version
-    1.0 of the SDMX Technical Standards.
-- `Replace`: Data/metadata is to be replaced and may also include
-    additional data/metadata to be appended.
-- `Delete`: Data/Metadata is to be deleted.
-- `Information`: Data and metadata are for information purposes.
+- `Merge`: Data or data-related reference metadata is to be merged, through either update or insertion depending on already existing information. This operation does not allow deleting any component values. Updating individual values in multi-valued measure, attribute or data-related reference metadata values is not supported either. The complete multi-valued value is to be provided.  Only non-dimensional components (measure, attribute or data-related reference metadata values) can be **omitted** as long as at least one of those components is present. Bulk merges are thus not supported. Only the provided values are merged.  Dimension values for higher-level (data-related reference metadata) attributes can be **switched-off** (see the format specifications) when those are not attached to these dimensions.  All observations as well as the sets of data-related reference metadata attributes at specific dimension combinations impacted by the `Merge` action change their time stamp when used to update an SDMX storage system.
+- `Replace`: Data or data-related reference metadata is to be replaced, through either update, insert or delete depending on already existing information. A full replacement is hereby assumed to take place at specific "replacement levels": for entire observations and for any specific dimension combination for data-related reference metadata attributes. Within these "replacement levels" the provided values are inserted or updated, and omitted values are deleted. Values provided for the other attributes (those above the observation level) are merged (see `Merge` action).  Only non-dimensional components (measure, attribute or reference metadata values) can be **omitted**. Bulk replacing is thus not supported.  Dimension values for higher-level (data-related reference metadata) attributes can be **switched-off** (see the format specifications) when those are not attached to these dimensions.  Replacing non-existing elements is not resulting in an error.  All observations as well as the sets of data-related reference metadata attributes at specific dimension combinations impacted by the `Replace` action change their time stamp when used to update an SDMX storage system.  Because the `Replace` action always takes place at specific levels, it cannot be used to replace a whole dataset or a whole series. However, a "*replace all*" effect can be achieved by combining a `Delete` dataset containing a completely wildcarded key (where all dimension values are omitted) with a `Merge` or `Replace` dataset within the same data message. Similarly, to replace a whole series, a message can combine a `Delete` dataset containing only the partial key of the series (where the not used dimension values are omitted) with a `Merge` or `Replace` dataset for that series.
+- `Delete`: Data or data-related reference metadata is to be deleted. Deletion is hereby assumed to take place at the lowest level of detail provided in the message.  Any component (including dimensions) can be **omitted**, which allows for bulk deletions. Partially omitting non-dimension component values allows restricting the deletion of measure, attribute or data-related reference metadata values to the ones being present. Instead of real values for non-dimensional components, it is sufficient to use any valid value.  With this, all dataflow data, any slices of observations for dimension groups such as time series, observations or individual measure, attribute and data-related reference metadata attributes values can be deleted.  Dimension values for higher-level (data-related reference metadata) attributes can be **switched-off** (see the format specifications) when those are not attached to these dimensions.  Deleting non-existing elements or values is not resulting in an error.  All observations as well as the sets of attributes and data-related reference metadata at higher partial keys impacted by the *Delete* action change their time stamp when used to update an SDMX storage system.
+- `Append`: Deprecated. When used to update an SDMX storage system, the `Merge` action is assumed.
+- `Information`: Deprecated. When used to update an SDMX storage system, the `Merge` action is assumed.
 
 The `ToValueType` data type contains the attributes to support
 transformations defined in the `StructureMap` (see Section 0).
