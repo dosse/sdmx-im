@@ -109,9 +109,6 @@ The purpose of this revision is threefold:
     Attribute inherit directly from Component.
 11. `isPartial` attribute added to Item Scheme to support partial Item
     Schemes (e.g. partial Code list).
-12. Annotation's `url`(s) are replaced by `+links`, which aligns with the HATEOS principles.
-13. IdentifiableArtefact's property `uri` is replaced by `+links`, which aligns with the HATEOS principles.
-14. VersionableArtefact properties `validFrom` and `validTo` only apply to artefacts that are not semantically versioned.
 
 #### Representation
 
@@ -201,7 +198,6 @@ Updated Item Scheme Association as follows:
 2. Removed `codevalueLength` from `Codelist` as this is supported by Facet.
 3. Removed `hierarchyView` association between Code and Hierarchy as this
     association is not implemented.
-4. Added `validFrom` and `validTo` properties to `Code`s
 
 #### Metadata Structure Definition(MSD)
 
@@ -428,4 +424,5 @@ Changed Maintainable Artefacts
 - Annotation's `url`(s) are replaced by `+links`, which aligns with the HATEOS principles. This was already available in SDMX-JSON.
 - IdentifiableArtefact's property `uri` is replaced by `+links`, which aligns with the HATEOS principles. This was already available in SDMX-JSON and partially in SDMX-XML.
 - VersionableArtefact properties `validFrom` and `validTo` only apply to artefacts that are not semantically versioned.
+- A `Codelist`, may extend other `Codelist`s *only* of the same `Codelist` type. However, extending is not supported for `GeoGridCodelist`s.
 - Added `validFrom` and `validTo` properties to `Code`s

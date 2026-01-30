@@ -87,7 +87,7 @@ paragraph "Explanation of the Diagram" - "Narrative".
 |          | `validFrom` | An `ObservationalTimePeriod`. Used for business validity: Values can only be provided for this Code if their Time Periods start earliest at the start of the time period defined in this property. |
 |          | `validTo` | An `ObservationalTimePeriod`. Used for business validity: Values can only be provided for this Code if their Time Periods end latest at the end of the time period defined in this property. |
 |          | hierarchy  | Associates the parent and the child codes. |
-|          | extends    | Associates a `Codelist` with any `Codelist`s that it may extend. |
+|          | extends    | Associates a `Codelist` with any `Codelist`s (of the same `Codelist` type) that it may extend. Not applicable to `GeoGridCodelist`s. |
 
 ### Class Diagram – `Codelist` Extension
 
@@ -98,7 +98,8 @@ Class diagram for `Codelist` Extension
 
 #### Narrative
 
-A `Codelist` may extend other `Codelist`s via the `CodelistExtension` class.
+A `Codelist`, except `GeoGridCodelist`s, may extend other `Codelist`s  
+(of the same `Codelist` type) via the `CodelistExtension` class.
 The latter, via the sequence, indicates the order of precedence of the
 extended `Codelist`s for conflict resolution of `Code`s. Besides that, the
 prefix property is used to ensure uniqueness of inherited `Code`s in the
