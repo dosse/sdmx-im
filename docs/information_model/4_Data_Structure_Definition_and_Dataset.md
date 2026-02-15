@@ -146,8 +146,8 @@ A `DataStructureDefinition` defines the `Dimension`s, `TimeDimension`,
 `DataAttributes`, and `Measure`s, and associated `Representation`s, that
 comprise the valid structure of data and related attributes that are
 contained in a `DataSet`, which is defined by a `Dataflow`. In addition, a
-`DataStructureDefinition` may be related to one
-`MetadataStructureDefinition`, in order to use the latter’s
+`DataStructureDefinition` may be extended by one or more
+`MetadataStructureDefinition`s, in order to use their
 `MetadataAttributes`, by relating them to other `Components` within the
 DSD, as explained below.
 
@@ -194,7 +194,7 @@ defined by the `Representation`. This `Representation` is taken from the
 `DataStructureDefinition` (`localRepresentation`) – see Figure 28. Note also
 that `TimeDimension` is constrained to specific `FacetValueTypes`. Moreover,
 the `Representation`s of `MetadataAttributes` are specified in the
-corresponding `MetadataStructureDefinition`, linked by the
+corresponding `MetadataStructureDefinition`s, referenced by the
 `DataStructureDefinition`.
 
 There will always be a `DimensionDescriptor` grouping that identifies all
@@ -297,7 +297,7 @@ Each of `Dimension`, `TimeDimension`, `Measure`, `DataAttribute` and
 (`coreRepresentation`) is used. `Measure`, and `DataAttribute` may be also
 represented by multilingual text (as seen in the `DataSet` diagram further
 down). An exception is the `MetadataAttribute`, where its `Representation`
-is specified in the `MetadataStructureDefinition`.
+is specified in the `MetadataStructureDefinition`s.
 
 A `DataStructureDefinition` can be extended to form a derived
 `DataStructureDefinition`. This is supported in the `StructureMap`.
@@ -311,7 +311,8 @@ A `DataStructureDefinition` can be extended to form a derived
 |  | `/structure` | Associates a `Dataflow` to the `DataStructureDefinition`. |
 |  | `dimensionConstraint` | A list of Dimensions which the `Dataflow` uses. This is only required when the referenced `DataStructureDefinition` has the `evolvingStructure` property set to `true` and when the association to the `DataStructureDefinition` is on the latest minor version.[^1] |
 | `DataStructureDefinition` |  | A collection of metadata concepts, their structure and usage when used to collect or disseminate data. |
-|  | `/grouping` | An association to a set of metadata concepts that have an identified structural role in a `DataStructureDefinition`. |
+|  | `/grouping` | An association to a set of metadata concepts `GroupDimensionDescriptor`, `DimensionDescriptor`, `AttributeDescriptor`, `MeasureDescriptor`) that have an identified structural role in a `DataStructureDefinition`. |
+|  | `/metadata` | An association to one or more `MetadataStructureDefinition`s that extend the `DataStructureDefinition` in order to use their `MetadataAttribute` components. |
 |  | `evolvingStructure` | An optional boolean property, defaulting to `false`. When `true` the DataStructureDefinition may have new Dimensions added without having to change its major version number.  |
 | `GroupDimensionDescriptor` | Inherits from `ComponentList` | A set of metadata concepts that define a partial key derived from the `DimensionDescriptor` in a `DataStructureDefinition`. |
 |  | `/components` | An association to the `Dimension` components that comprise the group. |
@@ -451,9 +452,9 @@ or more `AttributeValue`s that define some metadata about the object to
 which it is associated. The `AttributeValue` may be either a
 `DataAttributeValue` or a `MetadataAttributeValue`, representing values
 of `DataAttributes` defined in the DSD or `MetadataAttributes` of the linked
-MSD, respectively. The allowable `Concept`s and the objects to which these
+MSDs, respectively. The allowable `Concept`s and the objects to which these
 metadata can be associated (attached) are defined in the
-`DataStructureDefinition` and the linked `MetadataStructureDefinition`.
+`DataStructureDefinition` and the linked `MetadataStructureDefinition`s.
 
 The `AttributeValue` links to the object type (`SeriesKey`, `GroupKey`,
 Observation) to which it is associated.
@@ -507,7 +508,7 @@ Observation) to which it is associated.
 | `AttributeValue` | Abstract class. Subclasses: `DataAttributeValue`, `MetadataAttributeValue` | Represents the value for any Attribute reported in the Dataset, i.e., Data or Metadata Attribute. |
 | `DataAttributeValue` | Abstract class. Inherits from `AttributeValue`. Subclasses: `UncodedAttributeValue`, `CodedAttributeValue` | The value of a Data Attribute, such as the instance of a Coded Attribute or of an Uncoded Attribute in a structure such as a Data Structure Definition. |
 |  | `valueFor` | Association to the Data Attribute defined in the Data Structure Definition. Note that this is conceptual association as the `Concept` is identified explicitly in the data set. The source multiplicity (1..*) indicates the possibility to provide more than one value for a Data Attribute, if the latter allows it. |
-| `MetadataAttributeValue` | (explained further in section "Metadata Set") | The value of a Metadata Attribute, as specified in the Metadata Structure Definition, which is linked in the Data Structure Definition. |
+| `MetadataAttributeValue` | (explained further in section "Metadata Set") | The value of a Metadata Attribute, as specified in the Metadata Structure Definitions, which are linked in the Data Structure Definition. |
 | `UncodedAttributeValue` | Abstract class. Inherits from `AttributeValue`. Subclasses: `OtherUncodedAttributeValue`, `TextAttributeValue` |  |
 | `OtherUncodedAttributeValue` | Inherits from `UncodedAttributeValue` | An attribute value that has a text value. |
 |  | `value` | The value of the Uncoded attribute. |
