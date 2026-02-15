@@ -46,6 +46,7 @@ often referenced below.
 ### Class Diagram
 
 ![](media/image73.png)
+![](media/sdmx_transformation-transformation-inheritance.svg)
 /// figure-caption | 47
 Class inheritance diagram in the Transformations and
 Expressions Package
@@ -92,6 +93,7 @@ to `InternationalString` from `NameableArtefact`.
 ### Class Diagram
 
 ![](media/image74.png)
+![](media/sdmx_transformation-transformation-relationship.svg)
 /// figure-caption
 Relationship diagram in the Transformations and Expressions
 Package

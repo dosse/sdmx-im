@@ -38,6 +38,7 @@ depends upon the requirements of the class for:
 ### Class Diagram
 
 ![](media/image53.png){ width="550" }
+![](media/sdmx_datastructure-datastructuredefinition_inheritance.svg){ width="550" }
 /// figure-caption | 27
 Class inheritance in the Data Structure Definition and
 Data Set Packages
@@ -133,6 +134,7 @@ required.
 ### Class Diagram 
 
 ![](media/image54.png)
+![](media/sdmx_datastructure-datastructuredefinition_relationship.svg)
 /// figure-caption
 Relationship class diagram of the Data Structure Definition excluding representation
 ///
@@ -269,6 +271,7 @@ related to one of the following artefacts:
     `Measure`s.
 
 ![](media/image55.png)
+![](media/sdmx_datastructure-attribute_relationship.svg)
 /// figure-caption
 Attribute Attachment Defined in the Data Structure Definition
 ///
@@ -286,6 +289,7 @@ therefore only one of the following is possible.
 
 
 ![](media/image56.png)
+![](media/sdmx_datastructure-datastructuredefinition_representation.svg)
 /// figure-caption
 Representation of DSD Components
 ///
@@ -373,6 +377,7 @@ metadata that are collected or disseminated according to a known
 ### Class Diagram
 
 ![](media/image57.png){ width="550" }
+![](media/sdmx_dataset.svg){ width="550" }
 /// figure-caption
 Class Diagram of the Data Set
 ///

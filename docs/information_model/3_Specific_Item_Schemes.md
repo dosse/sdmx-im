@@ -33,6 +33,7 @@ diagrams in the specific sections below.
 ### Class Diagram
 
 ![](media/image42.png){ width="450" }
+![](media/sdmx_codelist-codelist.svg){ width="450" }
 /// figure-caption | 16
 Class diagram of the `Codelist`
 ///
@@ -92,6 +93,7 @@ paragraph "Explanation of the Diagram" - "Narrative".
 ### Class Diagram – `Codelist` Extension
 
 ![](media/image43.png){ width="450" }
+![](media/sdmx_codelist-codelist_extension.svg){ width="450" }
 /// figure-caption
 Class diagram for `Codelist` Extension
 ///
@@ -137,12 +139,14 @@ to a set of `Code`s with common parts in their identifiers.
 The geospatial support is implemented via an extension of the normal
 `Codelist`. This is illustrated in the following diagrams.
 
-![](media/image44.png){ width="350" }
+![](media/image44.png){ width="450" }
+![](media/sdmx_geospatial-geospatial_inheritance.svg){ width="450" }
 /// figure-caption
 Inheritance for the `GeoCodelist`
 ///
 
-![](media/image45.png)
+![](media/image45.png){ width="450" }
+![](media/sdmx_geospatial-geospatial_relationship.svg){ width="450" }
 /// figure-caption
 Class diagram for Geospatial `Codelist`
 ///
@@ -184,6 +188,7 @@ are related to the `gridDefinition` specified in the `GeoGridCodelist`.
 ### Class Diagram
 
 ![](media/image46.png){ width="550" }
+![](media/sdmx_codelist-valuelist.svg){ width="550" }
 /// figure-caption
 Class diagram of the `ValueList`
 ///
@@ -228,6 +233,7 @@ The `ValueList` can have one or more `ValueItems`.
 ### Class Diagram - Inheritance
 
 ![](media/image47.png){ width="550" }
+![](media/sdmx_conceptscheme-conceptscheme_inheritance.svg){ width="550" }
 /// figure-caption
 Class diagram of the Concept Scheme
 ///
@@ -275,7 +281,8 @@ paragraph "Explanation of the Diagram" - "Narrative".
 
 ### Class Diagram - Relationship
 
-![](media/image48.png)
+![](media/image48.png){ width="550" }
+![](media/sdmx_conceptscheme-conceptschemerelationship.svg){ width="550" }
 /// figure-caption
 Relationship class diagram of the Concept Scheme
 ///
@@ -338,6 +345,7 @@ to any set of `IdentiableArtefacts` in a Categorisation.
 ### Class diagram - Inheritance
 
 ![](media/image49.png){ width="350" }
+![](media/sdmx_categoryscheme-categoryscheme_inheritance.svg){ width="350" }
 /// figure-caption
 Inheritance Class diagram of the `Category` Scheme
 ///
@@ -387,7 +395,8 @@ paragraph "Explanation of the Diagram" - "Narrative".
 
 ### Class diagram - Relationship
 
-![](media/image50.png)
+![](media/image50.png){ width="450" }
+![](media/sdmx_categoryscheme-categoryscheme_relationship.svg){ width="450" }
 /// figure-caption
 Relationship Class diagram of the `Category` Scheme
 ///
@@ -422,6 +431,7 @@ effect on the versioning of either the `CategoryScheme` or the
 ### Class Diagram
 
 ![](media/image51.png)
+![](media/sdmx_base-organisation_scheme.svg)
 /// figure-caption
 The Organisation Scheme class diagram
 ///
@@ -502,6 +512,7 @@ paragraph "Explanation of the Diagram" - "Narrative".
 ### Class Diagram
 
 ![](media/image52.png){ width="550" }
+![](media/sdmx_categoryscheme-reporting_taxonomy.svg){ width="550" }
 /// figure-caption
 Class diagram of the Reporting Taxonomy
 ///

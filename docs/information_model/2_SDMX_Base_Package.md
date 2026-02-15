@@ -24,7 +24,8 @@ and relationships amongst classes.
 
 ### Class Diagram
 
-![](media/image36.png){ width="550" }
+![](media/image36.png){ width="550" }  
+![sdmx_base - base_inheritance](media/sdmx_base-base_inheritance.svg){ width="550" }  
 /// figure-caption | 10
 SDMX Identification, Maintenance and Versioning
 ///
@@ -119,6 +120,7 @@ and maintenance.
 ### Class Diagram – Basic Inheritance from the Base Inheritance Classes
 
 ![](media/image37.png){ width="550" }
+![](media/sdmx_base-base_inheritance.svg){ width="550" }
 /// figure-caption
 Basic Inheritance from the Base Structures
 ///
@@ -136,6 +138,7 @@ which they relate.
 ### Class Diagram
 
 ![](media/image38.png){ width="550" }
+![](media/sdmx_base-data_types.svg){ width="550" }
 /// figure-caption
 Class Diagram of Basic Data Types
 ///
@@ -193,6 +196,7 @@ The `ItemScheme` is the basis for `CategoryScheme`, `Codelist`,
 ### Class Diagram
 
 ![](media/image39.png)
+![](media/sdmx_base-item_scheme_pattern.svg)
 /// figure-caption
 The Item Scheme pattern
 ///
@@ -271,11 +275,13 @@ common software and common syntax structures.
 ### Class Diagrams
 
 ![](media/image40.png){ width="450" }
+![](media/sdmx_base-structure_pattern.svg){ width="450" }
 /// figure-caption
 The Structure Pattern
 ///
 
 ![](media/image41.png){ height="550" }
+![](media/sdmx_base-structure_pattern_representation.svg){ height="550" }
 /// figure-caption
 Representation within the Structure Pattern
 ///

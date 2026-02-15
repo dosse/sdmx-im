@@ -39,6 +39,7 @@ The principal features of the `Hierarchy` are:
 ### Class Diagram
 
 ![](media/image61.png)
+![](media/sdmx_codelist-hierarchy_inheritance.svg)
 /// figure-caption | 35
 Inheritance class diagram for the `Hierarchy`
 ///
@@ -68,6 +69,7 @@ shown in the relationship section below.
 ### Class Diagram
 
 ![](media/image62.png)
+![](media/sdmx_codelist-hierarchy_relationship.svg)
 /// figure-caption
 Relationship class diagram of the `Hierarchy`
 ///

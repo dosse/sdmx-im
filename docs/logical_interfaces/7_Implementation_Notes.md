@@ -114,6 +114,7 @@ and Structure Definitions
 #### 7.1.3.3 Structure Usage Model 
 
 ![](media/image14.png)
+![](media/sdmx_base-structure_usage.svg)
 /// figure-caption
 SDMX-IM of links from Structure Usage to Category
 ///
@@ -163,6 +164,7 @@ Data Provider. In terms of the SDMX Information Model, the Data Provider
 is maintained in a Data Provider Scheme.
 
 ![](media/image15.png)
+![](media/sdmx_registry-data_provider.svg)XXXXXX
 /// figure-caption
 SDMX-IM of the Data Provider
 ///
@@ -180,6 +182,7 @@ The diagram below is a logical representation of the data required in
 order to maintain Provision Agreements.
 
 ![](media/image17.png)
+![](media/sdmx_registry-provision_agreement.svg)
 /// figure-caption
 Logical class diagram of the information contained in the
 Provision Agreement
@@ -253,6 +256,7 @@ constrained
 ### 7.3.3 Data and Metadata Constraints: Model
 
 ![](media/image19.png)
+![](media/sdmx_registry-constrainable_relationship.svg)
 /// figure-caption
 Logical class diagram showing inheritance between and
 reference to constrainable artefacts
@@ -337,6 +341,7 @@ following values:
 
 
 ![](media/image21.png)
+![](media/sdmx_registry-registration_request.svg)
 /// figure-caption
 Logical Class Diagram of Registration of Data and Metadata
 ///
@@ -409,6 +414,7 @@ contain some successful and some failed statuses. The logical model for
 the `RegistrationResponse` is shown below:
 
 ![](media/image22.png)
+![](media/sdmx_registry-registration_response.svg)
 /// figure-caption
 Logical class diagram showing the registration response
 ///
@@ -440,6 +446,7 @@ the subscription. This is called a “notification”.
 ###  7.5.1 Subscription Logical Class Diagram 
 
 ![](media/image23.png)
+![](media/sdmx_registry-subscription.svg)
 /// figure-caption
 Logical Class Diagram of the Subscription
 ///
@@ -577,6 +584,7 @@ or replacement of an existing registration or a new registration.
 ### 7.6.1 Logical Class Diagram
 
 ![](media/image24.png)
+![](media/sdmx_registry-notification.svg)
 /// figure-caption
 Logical Class Diagram of the Notification
 ///

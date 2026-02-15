@@ -26,6 +26,7 @@ for the given source value(s)’.
 ### Class Diagram – Relationship
 
 ![](media/image65.png)
+![](media/sdmx_mapping-RepresentationMap.svg)
 /// figure-caption | 39
 Representation Map
 ///

@@ -23,6 +23,7 @@ The absence of an output for an input is interpreted as ‘no output value
 for the given source value(s)’.
 
 ![](media/image66.png)
+![](media/sdmx_mapping-item_scheme_map.svg)
 /// figure-caption | 40
 Item Scheme Map
 ///

@@ -21,6 +21,7 @@ All major classes of the SDMX Information model inherit from one of:
 ### Identification, Naming, Versioning, and Maintenance Model
 
 ![](media/image8.png)
+![](../information_model/media/sdmx_base-base_inheritance.svg)
 /// figure-caption | 5
 Class diagram of fundamental artefacts in the SDMX-IM
 ///
@@ -73,6 +74,7 @@ itself is a sub class of Organisation Scheme – this is shown in the
 class diagram below.
 
 ![](media/image9.png)
+![](media/sdmx_base-agency_scheme.svg)
 /// figure-caption
 Agency Scheme Model
 ///
