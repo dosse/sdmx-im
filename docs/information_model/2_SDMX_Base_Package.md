@@ -120,7 +120,7 @@ and maintenance.
 ### Class Diagram – Basic Inheritance from the Base Inheritance Classes
 
 ![](media/image37.png){ width="550" }
-![](media/sdmx_base-base_inheritance.svg){ width="550" }
+![](media/sdmx_base-basic_inheritance.svg){ width="550" }
 /// figure-caption
 Basic Inheritance from the Base Structures
 ///
