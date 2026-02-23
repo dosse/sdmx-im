@@ -48,7 +48,9 @@ describe any SDMX construct. This information may be in the form of a
 to `InternationalString`).
 
 The `IdentifiableArtefact` is an abstract class that comprises the basic
-attributes needed for identification and `+link`s to external resources. Concrete classes based on `IdentifiableArtefact` all inherit the ability to be uniquely identified.
+attributes needed for identification and `+link`s to additional resources. Concrete classes based on `IdentifiableArtefact` all inherit the ability to be uniquely identified.
+
+The `Link` allows relating to additional resources, including external resources. The type of `Relationship` of the current artefact to the linked resource is conveyed in the required link's `rel` property, according to the semantics defined by SDMX artefact types (dataStructure, metadataStructure, …), the [RFC 8288](https://datatracker.ietf.org/doc/html/rfc8288) (alternate, copyright, glossary, help, index, self, …), miscellaneous types (calendar, source, request), [SKOS relationships](https://www.w3.org/TR/skos-reference/#vocab) (skos:definition, skos:exactMatch, …) and [XKOS relationships](https://rdf-vocabulary.ddialliance.org/xkos.html#nsvoc) (xkos:generalizes, xkos:precedes, …). In addition, a link must contain either an `href` property with the actual web address of the related resource or a `urn` property, which holds any valid SDMX Registry URN (see SDMX Registry Specification for details).
 
 The `NamableArtefact` is an abstract class that inherits from
 `IdentifiableArtefact` and in addition the `+description` and `+name` roles
@@ -86,7 +88,7 @@ and maintenance.
 |  | `+link` | Optionally localised link(s) based on a URI or a URN to related information, including external resources. |
 | `Link` |  | A link to additional resources, including external resources. |
 |  | `href` | The href holds a URL (Uniform Resource Locator) with the actual web address of the related resource. Either href or urn are required. |
-|  | `rel` | Relationship of the object to the resource. See semantics below. Use 'self' to indicate the urn to the parent object. |
+|  | `rel` | Relationship of the object to the resource. See semantics above. |
 |  | `urn` | The urn holds any valid SDMX Registry URN (see SDMX Registry Specification for details). Either href or urn are required. |
 |  | `uri` | The uri attribute holds a URI that contains a link to additional information about the resource, such as a web page. This uri is not an SDMX resource. |
 |  | `+title` | An International String provides the title for the link. |
