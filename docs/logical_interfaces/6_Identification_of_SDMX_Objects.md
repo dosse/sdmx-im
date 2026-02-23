@@ -49,8 +49,8 @@ be stored in a registry for objects that are one of:
 | | `Description` | Optional | `InternationalString` | Can have language-specific variants. |
 | `Versionable` | All content as for `Identifiable` plus |  |  |  |
 | | `version` | Mandatory | string | This is the version number according to SDMX versioning rules. |
-| | `validFrom` | Optional | `ObservationalTimePeriod` | Date-time (start of the given time period) from which the version is valid. Only for artefacts that are not semantically versioned. |
-| | `validTo` | Optional | `ObservationalTimePeriod` | Date-time (end of the given time period) from which the version ceases to be valid. Only for artefacts that are not semantically versioned. |
+| | `validFrom` | Optional | Date-time | Point in time from which the version is valid. Only for artefacts that are not semantically versioned. |
+| | `validTo` | Optional | Date-time | Point in time from which the version ceases to be valid. Only for artefacts that are not semantically versioned. |
 | `Maintainable` | All content as for `Versionable` plus |  |  |  |
 | | `isExternalReference` | Optional | boolean | Value of `true` indicates that the actual resource is held outside of this registry. The actual reference is given in the `structureURL`, which must return a valid SDMX structure message. |
 | | `structureURL` | Optional | string | The full URL at which the resource can be retrieved. |

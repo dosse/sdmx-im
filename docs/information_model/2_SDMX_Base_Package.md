@@ -107,8 +107,8 @@ and maintenance.
 |  | `locale` | The geographic locale of the string e.g French, Canadian French. |
 | `VersionableArtefact` | Superclass is `NameableArtefact`. Base inheritance sub classes are: `MaintainableArtefact` | Provides versioning information for all derived objects. |
 |  | `version` | A version string following SDMX versioning rules. |
-|  | `validFrom` | An `ObservationalTimePeriod`. Date-time (start of the given time period) from which the version is valid. Only for artefacts that are not semantically versioned. |
-|  | `validTo` | An `ObservationalTimePeriod`. Date-time (end of the given time period) from which the version ceases to be valid. Only for artefacts that are not semantically versioned. |
+|  | `validFrom` | Date-time from which the version is valid. Only for artefacts that are not semantically versioned. |
+|  | `validTo` | Date-time from which the version ceases to be valid. Only for artefacts that are not semantically versioned. |
 | `MaintainableArtefact` | Inherits from `VersionableArtefact` | An abstract class to group together primary structural metadata artefacts that are maintained by an Agency. |
 |  | `isExternalReference` | If set to `true` it indicates that the content of the object is held externally. The actual reference is given in the `structureURL`, which must return a valid SDMX structure message. |
 |  | `structureURL` | The full URL at which the resource can be retrieved. |
