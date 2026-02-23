@@ -62,8 +62,8 @@ etc.). The `LocalisedString` supports the representation of a
 description in one locale.
 
 `VersionableArtefact` is an abstract class which inherits from
-`NameableArtefact` and adds versioning ability to all classes derived
-from it, as explained in the SDMX versioning rules in the Section [“Versioning” of the SDMX Technical Notes](../../technical_notes/technical_notes/3_General_Notes_for_Implementers.md#versioning).
+`NameableArtefact` and adds a version number to all classes derived
+from it, as explained in the SDMX versioning rules in the Section [“Versioning” of the SDMX Technical Notes](../../technical_notes/technical_notes/3_General_Notes_for_Implementers.md#versioning), as well as an optional  validity period for non-semantically versioned artefacts.
 
 `MaintainableArtefact` further adds the ability for derived classes to
 be maintained via its association to an `Organisation`, and adds

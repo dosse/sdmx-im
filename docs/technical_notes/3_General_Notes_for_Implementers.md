@@ -717,10 +717,9 @@ otherwise, the above version increment rules apply. `EXTENSION`s can be
 used e.g., for drafting or a pre-release.
 
 Semantically versioned SDMX artefacts will thus be safe to use. Specific
-version patterns allow them to become either immutable, i.e., the
-maintainer commits to never change their content, or changeable only
-within a well-defined scope. If any further change is required, a new
-version must be created first. Furthermore, the impact of the further
+version patterns allow them to become immutable, i.e., the maintainer 
+commits to never change their content. If any further change is required, 
+a new version must be created first. Furthermore, the impact of the
 change is communicated using a clear version increment. The built-in
 version extension facility allows for eased drafting of new SDMX
 artefact versions.
