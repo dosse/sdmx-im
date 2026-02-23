@@ -414,6 +414,10 @@ URN.
 |  |  |
 | `codelist` | `Code` |
 |  | `Codelist` |
+|  | `GeoFeatureSetCode` |
+|  | `GeographicCodelist` |
+|  | `GeoGridCode` |
+|  | `GeoGridCodelist` |
 |  | `HierarchicalCode` |
 |  | `Hierarchy` |
 |  | `HierarchyAssociation` |
@@ -472,8 +476,8 @@ urn:sdmx.org.sdmx.infomodel.{package}.{classname}=
 | `Category` | `categorySchemeAgencyId:categorySchemeId(version).categoryId.categoryId.categoryId` etc. | `IMF:SDDS(1.0.0):level_1_category.level_2_category ...` |
 | `CategoryScheme` | `categorySchemeAgencyId:categorySchemeId(version)` | `IMF:SDDS(1.0.0)` |
 | `CategorySchemeMap` | `catSchemeMapAgencyId:catSchemeMapId(version)` | `SDMX:EUROSTAT_SUBJECT_DOMAIN(1.0.0)` |
-| `Code` | `codeListAgencyId:codelistId(version).codeId` | `SDMX:CL_FREQ(1.0.0).Q` |
-| `Codelist` | `codeListAgencyId:codeListId(version)` | `SDMX:CL_FREQ(1.0.0)` |
+| `Code` | `codelistAgencyId:codelistId(version).codeId` | `SDMX:CL_FREQ(1.0.0).Q` |
+| `Codelist` | `codelistAgencyId:codelistId(version)` | `SDMX:CL_FREQ(1.0.0)` |
 | `ComponentMap` | `structureMapAgencyId:structureMap(version).componentMapId` | `SDMX:BOP_STRUCTURES(1.0.0).REF_AREA_TO_COUNTRY` |
 | `Concept` | `conceptSchemeAgencyId:conceptSchemeId(version).conceptId` | `SDMX:CROSS_DOMAIN_CONCEPTS(1.0.0).FREQ` |
 | `ConceptScheme` | `conceptSchemeAgencyId:conceptSchemeId(version)` | `SDMX:CROSS_DOMAIN_CONCEPTS(1.0.0)` |
@@ -490,6 +494,10 @@ urn:sdmx.org.sdmx.infomodel.{package}.{classname}=
 | `DataStructure` | `dataStructureDefinitionAgencyId:dataStructureDefinitionId(version)` | `TFFS:EXT_DEBT(1.0.0)` |
 | `Dimension` | `dataStructureDefinitionAgencyId:dataStructureDefinitionId(version).dimensionId` | `TFFS:EXT_DEBT(1.0.0).FREQ` |
 | `DimensionDescriptor`, `MeasureDescriptor`, `AttributeDescriptor` | `dataStructureDefinitionAgencyId:dataStructureDefinitionId(version).componentListId`<br>where `componentListId` is the name of the class (only one occurrence of each in the Data Structure Definition) | `TFFS:EXT_DEBT(1.0.0).DimensionDescriptor`<br>`TFFS:EXT_DEBT(1.0.0).MeasureDescriptor`<br>`TFFS:EXT_DEBT(1.0.0).AttributeDescriptor` |
+| `GeoFeatureSetCode` | `geographicCodelistAgencyId:geographicCodelistId(version).geoFeatureSetCodeId` | `SDMX:CL_GEO(1.0.0).GEO_CODE_1` |
+| `GeographicCodelist` | `geographicCodelistAgencyId:geographicCodelistId(version)` | `SDMX:CL_GEO(1.0.0)` |
+| `GeoGridCode` | `geoGridCodelistAgencyId:geoGridCodelistId(version).geoGridCodeId` | `SDMX:CL_GEO_GRID(1.0.0).GEO_GRID_CODE_1` |
+| `GeoGridCodelist` | `geoGridCodelistAgencyId:geoGridCodelistId(version)` | `SDMX:CL_GEO_GRID(1.0.0)` |
 | `GroupDimensionDescriptor` | `dataStructureDefinitionAgencyId:dataStructureDefinitionId(version).groupDimensionDescriptorId` | `TFFS:EXT_DEBT(1.0.0).SIBLING` |
 | `HierarchicalCode` | `hierarchyAgencyId:hierarchyId(version).hierarchicalCode.hierarchicalCode` | `UNESCO:H-C-GOV(1.0.0).GOV_CODE1.GOV_CODE1_1` |
 | `Hierarchy` | `hierarchyAgencyId:hierarchyId(version)` | `UNESCO:H-C-GOV(1.0.0)` |
