@@ -100,8 +100,8 @@ Class diagram for `Codelist` Extension
 
 #### Narrative
 
-A `Codelist`, except `GeoGridCodelist`s, may extend other `Codelist`s  
-(of the same `Codelist` type) via the `CodelistExtension` class.
+A `Codelist`, except `GeoGridCodelist`s, may extend other `Codelist`s 
+(of the same `Codelist` type) via the `CodelistExtension` class. 
 The latter, via the sequence, indicates the order of precedence of the
 extended `Codelist`s for conflict resolution of `Code`s. Besides that, the
 prefix property is used to ensure uniqueness of inherited `Code`s in the
@@ -125,7 +125,7 @@ to a set of `Code`s with common parts in their identifiers.
 
 | Class                  | Feature      | Description                                                                                                   |
 | :---                   | :---         | :---                                                                                                         |
-| `CodelistExtension`    |              | The association between `Codelist`s that may extend other `Codelist`s.                                           |
+| `CodelistExtension`    |              | The association between `Codelist`s that may extend other `Codelist`s (of the same `Codelist` type). Not applicable to `GeoGridCodelist`s. |
 |                        | `prefix`     | A prefix to be used for a `Codelist` used in an extension, in order to avoid `Code` Conflicts.                   |
 |                        | `sequence`   | The order that will be used when extending a `Codelist`, for resolving `Code` conflicts. The latest `Codelist` used overrides any previous `Codelist`. |
 | `Inclusive`Code`Selection` |             | The subset of `Code`s to be included when extending a `Codelist`.                                                |
