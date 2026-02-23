@@ -37,13 +37,8 @@ be stored in a registry for objects that are one of:
 
 | Object Type | Data Attributes | Status | Data type | Notes |
 | :--- | :--- | :--- | :--- | :--- |
-| `Annotable` |  |   |      |      |
-| | `id` | Optional | string | Provides a non-standard identification of an annotation. It can be used to disambiguate annotations. |
-| | `AnnotationTitle` | Optional | string | Provides a title for the annotation. |
-| | `AnnotationType` | Optional | string | Used to distinguish between annotations designed to support various uses. The types are not enumerated, as these can be specified by the user or creator of the annotations. The definitions and use of annotation types should be documented by their creator. | 
-| | `AnnotationValue` | Optional | string | Holds a non-localised value for the annotation. |
-| | `AnnotationText` | Optional | `InternationalString` | Can have language-specific variants. |
-| | `AnnotationLinks` | Optional | `Link` | Optionally localised link(s) based on a URI or a URN to related information, including external resources. |
+| `Annotable` |  |   |      | Objects of classes derived from this can have attached annotations. |
+| | `+annotation` | Optional | `Annotation` |  |
 | `Identifiable` | All content as for `Annotable` plus |  |  |  |
 | | `id` | Mandatory | SDMX `id` |  |
 | | `urn` | Optional | string | Although the `urn` is computable and may not be submitted or stored physically, the registry must return the `urn` for each object, and must be able to service a query on an object referenced solely by its `urn`. |
