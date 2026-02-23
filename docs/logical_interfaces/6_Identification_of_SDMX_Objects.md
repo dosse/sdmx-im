@@ -13,7 +13,8 @@ All major classes of the SDMX Information model inherit from one of:
 - `VersionableArtefact` – this has all of the above features plus
     a version number, according to the SDMX versioning rules in SDMX
     Standards Section 6 “Technical Notes”, paragraph “4.3 Versioning”,
-    as well as a validity period for non-semantically versioned artefacts.
+    as well as a validity period, for which the meaning is not pre-defined, 
+    for non-semantically versioned artefacts.
 - `MaintainableArtefact` – this has all of the above features,
     plus SDMX web service and structure URIs, and an association to the
     maintenance organisation of the object.
